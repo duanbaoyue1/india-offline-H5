@@ -36,9 +36,7 @@ function sendBackData() {
   if (getQueryVariable("utm_campaign")) {
     data["utmCampaign"] = getQueryVariable("utm_campaign");
   }
-  ajaxPost("/api/diversion/channelObtain", data, function (data) {
-    console.log(data);
-  });
+  ajaxPost("/api/diversion/channelObtain", data, function (data) {});
 }
 function sendTrackEvent(o) {
   gtag("event", o);
@@ -56,15 +54,9 @@ const generateUUID = () => {
   });
 };
 function downLoadApp() {
-  console.log(
-    `https://handycash.onelink.me/UjoE?af_xp=custom&pid=${
-      getQueryVariable("utm_source") || ""
-    }&vid=${androidId}`
-  );
-  console.log(androidId, "**** uuid");
   location.href = `https://handycash.onelink.me/UjoE?af_xp=custom&pid=${
     getQueryVariable("utm_source") || ""
-  }&vid=${androidId}`;
+  }&vid=${androidId}&af_prt=${getQueryVariable("af_prt") || ""}`;
 }
 
 $(function () {
@@ -72,7 +64,6 @@ $(function () {
   gtag("get", "G-DQXMSRPC72", "client_id", (o) => {
     client_id = o;
   });
-  console.log("page_view_Handy");
   $("#Pending-App")[0].style.display = "none";
   sendTrackEvent("page_view_Handy");
   $("#Download-App").on("click", function () {
@@ -95,7 +86,6 @@ $(function () {
     $(window).scroll(function () {
       if (!isScroll) {
         isScroll = true;
-        console.log(isScroll, "page_scroll_Handy");
         sendTrackEvent("page_scroll_Handy");
       }
     });
