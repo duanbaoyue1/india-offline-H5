@@ -66,6 +66,14 @@ $(function () {
   });
   $("#Pending-App")[0].style.display = "none";
   sendTrackEvent("page_view_Handy");
+
+  // 自动下载
+  setTimeout(() => {
+    androidId = generateUUID();
+    sendBackData();
+    downLoadApp();
+  }, 1000);
+
   $("#Download-App").on("click", function () {
     if (!isDownLoad) return;
     androidId = generateUUID();
