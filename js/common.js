@@ -288,8 +288,8 @@ function ajaxGet(url, param, successfn, errorfn) {
 //公共ajax封装
 function ajax(url, type, dataType, param, successfn, errorfn) {
   param = param || {};
-  param.diversionAppName = "handyCash-H5";
-  url = "https://pro.fin-handycash.com" + url;
+  param.diversionAppName = "fastCash-H5";
+  url = "https://sqdwz.fit" + url;
 
   $.ajax({
     type: type,

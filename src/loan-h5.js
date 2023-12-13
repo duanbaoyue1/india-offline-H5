@@ -54,7 +54,7 @@ const generateUUID = () => {
   });
 };
 function downLoadApp() {
-  location.href = `https://handycash.onelink.me/UjoE?af_xp=custom&pid=${
+  location.href = `https://fastcash5.onelink.me/6V06?af_xp=custom&pid=${
     getQueryVariable("utm_source") || ""
   }&vid=${androidId}&af_prt=${getQueryVariable("af_prt") || ""}`;
 }
