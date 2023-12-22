@@ -42,9 +42,18 @@ function sendTrackEvent(o) {
   gtag("event", o);
   fbq("track", o);
 }
-function getCookie(o) {
-  o = ("; " + document.cookie).split(`; ${o}=`);
-  if (2 === o.length) return o.pop().split(";").shift();
+function getCookie(v) {
+  var regex = /_fbp=([^;]+)/g;
+  if (v === "_fbc") {
+    regex = /_fbc=([^;]+)/g;
+  }
+  var _fbpValues = [];
+  var match;
+
+  while ((match = regex.exec(document.cookie)) !== null) {
+    _fbpValues.push(match[1]);
+  }
+  return _fbpValues.length ? _fbpValues[0] : "";
 }
 const generateUUID = () => {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
