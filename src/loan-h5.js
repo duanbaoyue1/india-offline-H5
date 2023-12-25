@@ -63,9 +63,7 @@ const generateUUID = () => {
   });
 };
 function downLoadApp() {
-  location.href = `https://handycash.onelink.me/UjoE?af_xp=custom&pid=${
-    getQueryVariable("utm_source") || ""
-  }&vid=${androidId}&af_prt=${getQueryVariable("af_prt") || ""}`;
+  location.href = `${result.clickURL}&vid=${androidId}`;
 }
 
 $(function () {
